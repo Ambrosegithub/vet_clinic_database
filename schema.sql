@@ -23,7 +23,7 @@ DROP COLUMN species;
 -- create owner table.
 CREATE TABLE owners (
     id INT NOT NULL GENERATED ALWAYS AS IDENTITY ,
-    full_name varchar(255),
+    full_name varchar(250),
     age INT NOT NULL,
     PRIMARY KEY(id)
 );
@@ -31,7 +31,7 @@ CREATE TABLE owners (
 -- species table
 CREATE TABLE species (
     id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
-    name varchar(255),
+    name varchar(250),
     PRIMARY KEY(id)
 );
 
