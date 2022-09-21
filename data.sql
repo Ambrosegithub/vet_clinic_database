@@ -13,10 +13,27 @@ INSERT INTO animals ( name, date_of_birth, escape_attempts, neutered, weight_kg 
 INSERT INTO animals ( name, date_of_birth, escape_attempts, neutered, weight_kg ) VALUES ('Blossom',  '1998-10-13', 3, true, 17);
 INSERT INTO animals ( name, date_of_birth, escape_attempts, neutered, weight_kg ) VALUES ('Blossom',  '2022-05-14', 4, true, 22);
 
-/* Animal: His name is Charmander. He was born on Feb 8th, 2020, and currently weighs -11kg. He is not neutered and he has never tried to escape.
-Animal: Her name is Plantmon. She was born on Nov 15th, 2021, and currently weighs -5.7kg. She is neutered and she has tried to escape 2 times.
-Animal: His name is Squirtle. He was born on Apr 2nd, 1993, and currently weighs -12.13kg. He was not neutered and he has tried to escape 3 times.
-Animal: His name is Angemon. He was born on Jun 12th, 2005, and currently weighs -45kg. He is neutered and he has tried to escape once.
-Animal: His name is Boarmon. He was born on Jun 7th, 2005, and currently weighs 20.4kg. He is neutered and he has tried to escape 7 times.
-Animal: Her name is Blossom. She was born on Oct 13th, 1998, and currently weighs 17kg. She is neutered and she has tried to escape 3 times.
-Animal: His name is Ditto. He was born on May 14th, 2022, and currently weighs 22kg. He is neutered and he has tried to escape 4 times. */
+-- inserting data into owners table
+INSERT INTO owners(full_name, age) VALUES('Sam Smith', 34);
+INSERT INTO owners(full_name, age) VALUES('Jennifer Orwell', 19);
+INSERT INTO owners(full_name, age) VALUES('Bob', 45);
+INSERT INTO owners(full_name, age) VALUES('Melody Pond', 77);
+INSERT INTO owners(full_name, age) VALUES('Dean Winchester', 14);
+INSERT INTO owners(full_name, age) VALUES('Jodie Whittake', 38);
+
+-- inserting into species table
+INSERT INTO species(name) VALUES('Pokemon');
+INSERT INTO species(name) VALUES('Digimon');
+
+-- Modify inserted animals so it includes the species_id value
+UPDATE animals SET species_id = 2 WHERE name LIKE '%mon';
+UPDATE animals SET species_id = 1 WHERE species_id IS NULL;
+
+
+-- Modify inserted animals to include owner information (owner_id):
+UPDATE animals SET owner_id = 1 WHERE name = 'Agumon';
+UPDATE animals SET owner_id = 2 WHERE name = 'Gabumon' OR name = 'Pikachu';
+UPDATE animals SET owner_id = 3 WHERE name = 'Devimon' OR name = 'Plantmon';
+UPDATE animals SET owner_id = 4 WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+UPDATE animals SET owner_id = 5 WHERE name = 'Angemon' OR name = 'Boarmon';
+ 

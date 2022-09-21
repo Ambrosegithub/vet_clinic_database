@@ -15,3 +15,31 @@ CREATE TABLE animals (
 
 ALTER TABLE animals
 ADD species  varchar(255);
+
+-- drop species column 
+ALTER TABLE animals
+DROP COLUMN species;
+
+-- create owner table.
+CREATE TABLE owners (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY ,
+    full_name varchar(250),
+    age INT NOT NULL,
+    PRIMARY KEY(id)
+);
+
+-- species table
+CREATE TABLE species (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    name varchar(250),
+    PRIMARY KEY(id)
+);
+
+
+ALTER TABLE animals ADD COLUMN species_id INT;
+
+ALTER TABLE animals ADD CONSTRAINT fk_animals_species FOREIGN KEY( species_id) REFERENCES species(id);
+
+ALTER TABLE animals ADD COLUMN owner_id INT;
+
+ALTER TABLE animals ADD CONSTRAINT fk_animals_owners FOREIGN KEY( owner_id) REFERENCES owners(id);
