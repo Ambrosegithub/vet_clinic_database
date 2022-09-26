@@ -160,5 +160,5 @@ JOIN vets ON vets.id = visits.vets_id
 JOIN animals ON animals.id = visits.animals_id
 JOIN species ON species.id = animals.species_id
 WHERE vets.name = 'Maisy Smith'
-GROUP BY species.name
+GROUP BY species.name 
 ORDER BY species_with_most_visits DESC LIMIT 1;
