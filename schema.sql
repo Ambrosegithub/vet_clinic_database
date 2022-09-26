@@ -62,10 +62,23 @@ CREATE TABLE specializations (
 );
 
 CREATE TABLE visits (
+        id INT NOT NULL GENERATED ALWAYS AS IDENTITY ,
     animals_id INT NOT NULL,
     vets_id INT NOT NULL,
     date_of_visit DATE NOT NULL,
-    PRIMARY KEY(animals_id, vets_id, date_of_visit),
+    PRIMARY KEY(id),
     CONSTRAINT fk_visit_animals FOREIGN KEY(animals_id) REFERENCES animals(id),
     CONSTRAINT fk_visit_vets FOREIGN KEY(vets_id) REFERENCES vets(id)
 );
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- remove the not null from the age column 
+ALTER TABLE owners ALTER COLUMN age DROP NOT NULL;
+ALTER TABLE visits ADD COLUMN id INT NOT NULL GENERATED ALWAYS AS IDENTITY;
+ALTER TABLE visits DROP PRIMARY KEY;
+ALTER TABLE visits ADD PRIMARY KEY(id);
+
+
+ALTER TABLE visits DROP Constraint PRIMARY KEY;
