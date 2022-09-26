@@ -80,5 +80,10 @@ ALTER TABLE visits ADD COLUMN id INT NOT NULL GENERATED ALWAYS AS IDENTITY;
 ALTER TABLE visits DROP PRIMARY KEY;
 ALTER TABLE visits ADD PRIMARY KEY(id);
 
-
 ALTER TABLE visits DROP Constraint PRIMARY KEY;
+
+-- before decreasing the execution time of the query.
+
+CREATE INDEX animals_id_index ON visits(animals_id);
+CREATE INDEX vets_id_index ON visits(vets_id);
+CREATE INDEX email_id_index ON owners(email);
