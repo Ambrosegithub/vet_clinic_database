@@ -1,3 +1,4 @@
+-- MEDUCAL_HISTORIES TABLE --
 CREATE TABLE medical_histories
 (
     id          INT GENERATED ALWAYS AS IDENTITY               NOT NULL PRIMARY KEY,
