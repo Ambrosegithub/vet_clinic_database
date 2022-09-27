@@ -12,7 +12,7 @@ CREATE TABLE medical_histories
     CONSTRAINT fk_patients FOREIGN KEY (patient_id) REFERENCES patients (id) ON DELETE CASCADE
 );
 
--- treatments table
+-- treatments table --
 @@ -41,14 +41,19 @@ CREATE TABLE invoices_items
     unit_price   DECIMAL,
     quantity     INT,
