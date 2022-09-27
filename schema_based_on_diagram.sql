@@ -25,16 +25,3 @@ CREATE TABLE medical_histories
     CONSTRAINT fk_invoices FOREIGN KEY (invoice_id) REFERENCES invoices (id) ON DELETE CASCADE,
     CONSTRAINT fk_treatments FOREIGN KEY (treatment_id) REFERENCES treatments (id) ON DELETE CASCADE
 );
-
--- TABLE MADE FROM A MANY TO MANY RELATIONSHIP OF MEDICAL_HISTORY & TREATMENTS"
-CREATE TABLE medical_histories_treatments
-(
-    id                 INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL,
-    medical_history_id INT REFERENCES medical_histories (id) ON DELETE CASCADE,
-    treatment_id       INT REFERENCES treatments (id) ON DELETE CASCADE
-    medical_history_id INT,
-    treatment_id       INT,
-    CONSTRAINT fk_medical_histories FOREIGN KEY (medical_history_id) REFERENCES medical_histories (id) ON DELETE CASCADE,
-    CONSTRAINT fk_treatments FOREIGN KEY (treatment_id) REFERENCES treatments (id) ON DELETE CASCADE
-)
-
